@@ -112,10 +112,12 @@
     hamburger.addEventListener('click', () => {
       hamburger.classList.toggle('is-open');
       nav.classList.toggle('is-open');
+      document.body.classList.toggle('no-scroll', nav.classList.contains('is-open'));
     });
     nav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
       hamburger.classList.remove('is-open');
       nav.classList.remove('is-open');
+      document.body.classList.remove('no-scroll');
     }));
   </script>
 </body>

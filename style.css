@@ -758,28 +758,106 @@ ul { list-style: none; }
 }
 
 @media (max-width: 768px) {
-  .section { padding: 60px 0; }
+  .section { padding: 56px 0; }
+  .section-head { margin-bottom: 40px; }
   .section-head .en { font-size: 2.1rem; }
 
-  /* mobile nav */
+  /* prevent background scroll while menu is open */
+  body.no-scroll { overflow: hidden; }
+
+  /* ===== Mobile nav — full-screen designed panel ===== */
   .hamburger { display: flex; }
   .nav {
     position: fixed;
     inset: 0;
-    background: rgba(255, 255, 255, 0.98);
-    backdrop-filter: blur(10px);
+    z-index: 105;
+    /* fully opaque gradient — no bleed-through */
+    background: linear-gradient(150deg, #5B6BAE 0%, #7E6FB0 45%, #D988A8 100%);
     transform: translateX(100%);
-    transition: transform 0.35s ease;
+    opacity: 0;
+    visibility: hidden;
+    transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.4s ease, visibility 0.4s;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
+    overflow: hidden;
   }
-  .nav.is-open { transform: translateX(0); }
+  /* soft decorative glows */
+  .nav::before {
+    content: "";
+    position: absolute;
+    top: -80px; right: -80px;
+    width: 280px; height: 280px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(255,255,255,0.22), transparent 70%);
+    pointer-events: none;
+  }
+  .nav::after {
+    content: "";
+    position: absolute;
+    bottom: -100px; left: -60px;
+    width: 260px; height: 260px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(255,255,255,0.16), transparent 70%);
+    pointer-events: none;
+  }
+  .nav.is-open {
+    transform: translateX(0);
+    opacity: 1;
+    visibility: visible;
+  }
+
+  /* brand label at top of menu */
   .nav__list {
+    position: relative;
+    z-index: 1;
     flex-direction: column;
-    gap: 28px;
+    align-items: center;
+    gap: 4px;
+    width: 100%;
+    padding: 0 32px;
   }
-  .nav__list a { color: var(--text) !important; font-size: 1.05rem; }
+  .nav__list::before {
+    content: "Miss Kindai 2026";
+    display: block;
+    font-family: "Cormorant Garamond", serif;
+    font-size: 1.5rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    color: #fff;
+    margin-bottom: 28px;
+    opacity: 0.95;
+  }
+  .nav__list::after {
+    content: "魅せる、私らしさ。";
+    display: block;
+    font-size: 0.85rem;
+    letter-spacing: 0.18em;
+    color: rgba(255,255,255,0.9);
+    margin-top: 30px;
+  }
+  .nav__list li {
+    width: 100%;
+    max-width: 320px;
+    text-align: center;
+  }
+  .nav__list a {
+    display: block;
+    color: #fff !important;
+    font-size: 1.15rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    padding: 16px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.22);
+  }
+  .nav__list a::after { display: none; } /* remove desktop underline anim */
+  .nav__list li:last-child a { border-bottom: none; }
+
+  /* keep hamburger visible above the panel; force white X when open */
+  .header .hamburger { z-index: 120; }
+  .header .hamburger.is-open span,
+  .header--solid .hamburger.is-open span { background: #fff; }
 }
 
 @media (max-width: 560px) {
@@ -792,6 +870,15 @@ ul { list-style: none; }
   .news-row { flex-wrap: wrap; gap: 10px; }
   .news-row__date { flex-basis: auto; }
   .news-row__title { flex-basis: 100%; }
-  .info-table th { width: 130px; }
+  .info-table th { width: 120px; }
   .container { padding: 0 18px; }
+
+  /* mobile readability */
+  .concept__text { text-align: left; font-size: 0.95rem; }
+  .hero__title { letter-spacing: 0.05em; }
+  .hero__sub { font-size: 0.95rem; letter-spacing: 0.2em; }
+  .page-hero { padding: 56px 0 44px; }
+  .cards { gap: 20px; }
+  .profile-info__name { font-size: 2.1rem; }
+  .btn { padding: 12px 26px; }
 }
