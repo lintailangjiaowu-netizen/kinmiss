@@ -765,6 +765,16 @@ ul { list-style: none; }
   /* prevent background scroll while menu is open */
   body.no-scroll { overflow: hidden; }
 
+  /* IMPORTANT: backdrop-filter on the header creates a containing block
+     that traps the fixed menu inside the 72px header. Disable it on mobile
+     so the menu can cover the full screen. */
+  .header.is-scrolled,
+  .header--solid {
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+    background: rgba(255, 255, 255, 0.98);
+  }
+
   /* ===== Mobile nav — full-screen designed panel ===== */
   .hamburger { display: flex; }
   .nav {
