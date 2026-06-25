@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>News | ミス近畿大学2026</title>
+  <meta name="description" content="ミス近畿大学2026 お知らせ一覧。">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Noto+Sans+JP:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ===== Header ===== -->
+  <header class="header header--solid" id="header">
+    <div class="header__inner">
+      <a href="index.html" class="logo">Miss Kindai<span>UNIVERSITY 2026</span></a>
+      <nav class="nav" id="nav">
+        <ul class="nav__list">
+          <li><a href="index.html">TOP</a></li>
+          <li><a href="finalists.html">Finalists</a></li>
+          <li><a href="outline.html">Outline</a></li>
+          <li><a href="news.html">News</a></li>
+          <li><a href="sponsors.html">Sponsors</a></li>
+        </ul>
+      </nav>
+      <button class="hamburger" id="hamburger" aria-label="メニュー">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- ===== Page hero ===== -->
+  <section class="page-hero">
+    <h1>News</h1>
+    <p>お知らせ</p>
+  </section>
+
+  <!-- ===== News list ===== -->
+  <section class="section">
+    <div class="container">
+      <div class="news-list">
+        <a href="#" class="news-row">
+          <span class="news-row__date">2026.09.14</span>
+          <span class="badge badge--info">お知らせ</span>
+          <span class="news-row__title">ファイナリストお披露目！</span>
+        </a>
+        <a href="#" class="news-row">
+          <span class="news-row__date">2026.09.04</span>
+          <span class="badge badge--event">イベント</span>
+          <span class="news-row__title">宣材写真撮影・決起会を実施しました</span>
+        </a>
+        <a href="#" class="news-row">
+          <span class="news-row__date">2026.07.12</span>
+          <span class="badge badge--result">結果発表</span>
+          <span class="news-row__title">オーディション結果発表 — ファイナリスト決定</span>
+        </a>
+        <a href="#" class="news-row">
+          <span class="news-row__date">2026.04.27</span>
+          <span class="badge badge--info">お知らせ</span>
+          <span class="news-row__title">エントリー募集開始</span>
+        </a>
+        <a href="#" class="news-row">
+          <span class="news-row__date">2026.03.01</span>
+          <span class="badge badge--info">お知らせ</span>
+          <span class="news-row__title">ミス近畿大学2026 始動</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Footer ===== -->
+  <footer class="footer">
+    <div class="footer__logo">Miss Kindai 2026</div>
+    <p class="footer__catch">魅せる、私らしさ。</p>
+    <div class="footer__sns">
+      <a href="#" aria-label="X"><i class="fa-brands fa-x-twitter"></i></a>
+      <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+      <a href="#" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+      <a href="#" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+    </div>
+    <p class="footer__org">Miss Kindai University 2026 実行委員会</p>
+    <p class="footer__copy">© 2026 Miss Kindai Executive Committee. All Rights Reserved.</p>
+  </footer>
+
+  <script>
+    const hamburger = document.getElementById('hamburger');
+    const nav = document.getElementById('nav');
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('is-open');
+      nav.classList.toggle('is-open');
+    });
+    nav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+      hamburger.classList.remove('is-open');
+      nav.classList.remove('is-open');
+    }));
+  </script>
+</body>
+</html>
