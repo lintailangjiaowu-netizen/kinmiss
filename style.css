@@ -885,7 +885,12 @@ ul { list-style: none; }
 
   /* mobile readability */
   .concept__text { text-align: left; font-size: 0.95rem; }
-  .hero__title { letter-spacing: 0.05em; }
+  /* keep the catch copy on a single line */
+  .hero__title {
+    font-size: clamp(1.8rem, 8vw, 2.6rem);
+    letter-spacing: 0.02em;
+    white-space: nowrap;
+  }
   .hero__sub { font-size: 0.95rem; letter-spacing: 0.2em; }
   .page-hero { padding: 56px 0 44px; }
   .cards { gap: 20px; }
